@@ -21,12 +21,16 @@ app.get('/products', (req, res) => {
 
 
 app.get('/products/:productId/styles', (req, res) => {
-  console.log('👀', req.params.productId)
   db.getStyles(req.params.productId, (error, response) => {
     if (error) {
+      console.error(error)
       res.sendStatus(404)
     } else {
-      res.status(200).send(response.rows)
+      const result = {
+        product_id: req.params.productId,
+        results: response.rows
+      }
+      res.status(200).send(result)
     }
   })
 })
