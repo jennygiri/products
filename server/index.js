@@ -16,7 +16,7 @@ app.get('/products', (req, res) => {
     } else {
       res.status(200).send(response.rows)
     }
-  })
+  }, req.query.count)
 })
 
 
@@ -36,13 +36,10 @@ app.get('/products/:productId/styles', (req, res) => {
 })
 
 app.get('/products/:productId', (req, res) => {
-  console.log('🤙🏻', req.params.productId)
   db.getFeatures(req.params.productId, (error, response) =>{
     if (error) {
-      console.log('hi')
       res.sendStatus(404)
     } else {
-      console.log('response')
       res.status(200).send(response.rows)
     }
   })

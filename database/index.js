@@ -9,8 +9,8 @@ const db = new Pool({
     port: 5432
 })
 
-const getProducts = (callback) => {
-  db.query('SELECT * FROM products ORDER BY id ASC LIMIT 10', 
+const getProducts = (callback, count=10) => {
+  db.query(`SELECT * FROM products WHERE id < ${count}`, 
   //change this 11 to depend on an input at some point
   callback)
 }
@@ -26,7 +26,7 @@ const getStyles = (productId, callback) => {
 }
 
 const getFeatures = (productId, callback) => {
-  db.query(`select row_to_json(prods) as products from (select p.id, p.name, p.slogan, p.description, p.category, p.default_price, (select json_agg(feat) from (select * from features where "product_id"= p.id) feat) as features from products as p) prods where id=${productId}`, callback)
+  db.query(`select row_to_json(prods) as products from (select p.id, p.name, p.slogan, p.description, p.category, p.default_price, (select json_agg(feat) from (select features.feature, features.value from features where "product_id"= p.id) feat) as features from products as p) prods where id=${productId}`, callback)
 }
 
 module.exports = {
