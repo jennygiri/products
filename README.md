@@ -13,10 +13,10 @@
 
 ![postgres](https://www.vectorlogo.zone/logos/postgresql/postgresql-ar21.svg)
 
-- PostreSQL is used here as a robust and stable open source database
+- PostreSQL is used here as a robust and stable open source database, chosen for its relational features
 
 ![nginx](https://www.vectorlogo.zone/logos/nginx/nginx-ar21.svg)
 
-- NGINX enables load balancing HTTP traffic between between many routers
+- NGINX enables horizontally scaling, load balancing HTTP traffic between between various routers
 
 ---
