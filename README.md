@@ -20,3 +20,13 @@
 - NGINX enables horizontally scaling, load balancing HTTP traffic between between various routers
 
 ---
+
+### System Architecture
+
+Phase 1 - Singular EC2 micro-instance
+
+![](https://i.imgur.com/RufOYUJ.png)
+
+Phase 2 - Multiple EC2 instances, balanced by NGINX.  This horizontal scaling allowed for at least 3000 rps over a 30-60 second period of time.
+
+![](https://i.imgur.com/JKqO92A.png)
