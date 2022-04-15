@@ -1,4 +1,4 @@
-# Products
+# Alfredo Products
 
 An API service for an e-commerce site holding millions of product records and images.
 ---
